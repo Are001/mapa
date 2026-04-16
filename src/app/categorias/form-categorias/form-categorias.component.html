@@ -1,0 +1,19 @@
+<p>form-categorias works!</p>
+
+<form (submit)="enviarDatos()" [formGroup]="form">
+    <mat-form-field appearance="fill" > 
+        <mat-label>HI</mat-label>
+       <input matInput formControlName="descripcion">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Fecha de registro:</mat-label>
+        <input formControlName="fechaRegistro" matInput [matDatepicker]="picker" />
+         <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix  [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <div>
+        <button mat-flat-button color="primary">Enviar</button>
+        <a mat-stroked-button>Cancelar</a>
+    </div>
+</form>
