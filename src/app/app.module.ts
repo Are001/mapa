@@ -4,6 +4,8 @@ import {HttpClientModule} from '@angular/common/http';
 
 import {FormsModule, ReactiveFormsModule} from '@angular/forms'
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatTableModule } from '@angular/material/table';
+
 
 //import  {} from '@angular/material'
 import { MatButtonModule } from '@angular/material/button';
@@ -50,7 +52,8 @@ import { FormCategoriasComponent } from './categorias/form-categorias/form-categ
     ReactiveFormsModule,
     MatButtonModule,
     MatDatepickerModule,
-   MatNativeDateModule
+    MatNativeDateModule,
+    MatTableModule
    
 ],
   providers: [MatDatepickerModule],

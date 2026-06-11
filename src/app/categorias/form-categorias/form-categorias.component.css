@@ -9,3 +9,21 @@ mat-form-field{
 button{
     margin-right: 1rem;
 }
+
+
+table{
+    background-color: white;
+    
+    font: 100;
+    forced-color-adjust: auto;
+    color: black;
+}
+
+.mat-mdc-cell {
+     color: black;
+}
+
+.mat-mdc-header-cell {
+  color:black; 
+  font-weight: bold;
+}
