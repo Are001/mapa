@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <p>DETALLE CATEGORIAS.</p>
 <table mat-table [dataSource]="categorias" class="mat-elevation-z8">
 <!-- Position Column -->
@@ -31,3 +32,24 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
+=======
+<p>Alberto cambio el nombre del formulario categorias.</p>
+
+<form (submit)="enviarDatos()" [formGroup]="form">
+    <mat-form-field appearance="fill" > 
+        <mat-label>HI</mat-label>
+       <input matInput formControlName="descripcion">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Fecha:</mat-label>
+        <input formControlName="fechaRegistro" matInput [matDatepicker]="picker" />
+         <mat-hint>mm/dd/yyyy:</mat-hint>
+        <mat-datepicker-toggle matIconSuffix  [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <div>
+        <button mat-flat-button color="primary">Enviar</button>
+        <a mat-stroked-button>Cancelar</a>
+    </div>
+</form>
+>>>>>>> af45919e47dd356653099ee0f5826930852f0590
