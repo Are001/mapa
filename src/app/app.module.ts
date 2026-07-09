@@ -2,17 +2,18 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http';
 
-import {FormsModule, ReactiveFormsModule} from '@angular/forms'
+//import {FormsModule, ReactiveFormsModule} from '@angular/forms'
+import { FormsModule,FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatTableModule } from '@angular/material/table';
-
-
+import { MatCheckboxModule } from '@angular/material/checkbox';
 //import  {} from '@angular/material'
-import { MatButtonModule } from '@angular/material/button';
+
+import {MatButtonModule} from '@angular/material/button';
 import { AppRoutingModule } from './app-routing.module';
 import { MatInputModule } from '@angular/material/input';
 import {MatDatepickerModule} from '@angular/material/datepicker'
-import {MatNativeDateModule} from '@angular/material/core'
+import { MatNativeDateModule, MatRipple } from '@angular/material/core'
 import { AppComponent } from './app.component';
 import { MapaComponent } from './mapa/mapa.component';
 import {LeafletModule} from '@bluehalo/ngx-leaflet';
@@ -20,10 +21,9 @@ import { AgregarUsuarioComponent } from './mapa/agregar-usuario/agregar-usuario.
 
 
 import { CategoriasComponent } from './categorias/categorias.component';
-import { CrearCategoriaComponent } from './categorias/crear-categoria/crear-categoria.component';
+import { ConsultarCategoriaComponent } from './categorias/consultar-categoria/consultar-categoria.component';
 import { EditarCategoriaComponent } from './categorias/editar-categoria/editar-categoria.component';
 import { EliminarCategoriaComponent } from './categorias/eliminar-categoria/eliminar-categoria.component';
-import { FormularioCategoriasComponent } from './categorias/formulario-categorias/formulario-categorias.component';
 import { FormCategoriasComponent } from './categorias/form-categorias/form-categorias.component';
 
 @NgModule({
@@ -32,29 +32,35 @@ import { FormCategoriasComponent } from './categorias/form-categorias/form-categ
     MapaComponent,
     AgregarUsuarioComponent,
     CategoriasComponent,
-    CrearCategoriaComponent,
+    ConsultarCategoriaComponent,
     EditarCategoriaComponent,
     EliminarCategoriaComponent,
-    FormularioCategoriasComponent,
     FormCategoriasComponent,
     
     
     
   ],
   imports: [
+    ReactiveFormsModule,
+    
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
     BrowserModule,
     AppRoutingModule,
     LeafletModule,
     HttpClientModule,
-    MatFormFieldModule, 
-     MatInputModule,
+    MatCheckboxModule,
+    
+    
     FormsModule,
-    ReactiveFormsModule,
-    MatButtonModule,
+    
+  
     MatDatepickerModule,
     MatNativeDateModule,
-    MatTableModule
-   
+    MatTableModule,
+    MatRipple,
+    
 ],
   providers: [MatDatepickerModule],
   bootstrap: [AppComponent],

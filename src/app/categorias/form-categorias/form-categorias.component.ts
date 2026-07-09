@@ -1,7 +1,9 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { categorias } from '../categorias';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CategoriasService } from '../../services/categorias.service';
+import { formatDate } from '@angular/common';
+import { identity } from 'rxjs';
+
 
 @Component({
   selector: 'app-form-categorias',
@@ -9,48 +11,34 @@ import { CategoriasService } from '../../services/categorias.service';
   templateUrl: './form-categorias.component.html',
   styleUrl: './form-categorias.component.css'
 })
-export class FormCategoriasComponent implements OnInit {
-  
-  constructor (private formBuilder: FormBuilder, private serviceCategorias: CategoriasService){}
-  displayedColumns: string[] = ['id', 'descripcion', 'esActivo', 'fechaRegistro','acciones'];
-  form!: FormGroup
-   categorias:any;
-  @Output()
-  enviar:EventEmitter<categorias>= new EventEmitter<categorias>();
-  
-  ngOnInit(): void {
-    //this.form = this.formBuilder.group({
-      //descripcion:[],
-      //fechaRegistro:[]
-    //});
-
-    this.serviceCategorias.postConsultarPoliza().subscribe(response => {
-      this.categorias = response;
-    //debugger; 
-    //console.log(response );
-      
-    }, error => {
-      debugger;
-      alert(error);
-    });
+export class FormCategoriasComponent {
+ 
+ public form!: FormGroup;
+  //formBuilder: any;
+  constructor(private fb:FormBuilder,private serviceCategorias: CategoriasService){
+    this.form = this.fb.group({
+      //idCategoria:['', Validators.required],
+       descripcion: ['', Validators.required],
+       esActivo: ['', Validators.required],
+       fechaRegistro: ['', Validators.required]
+    })
   }
 
-
-  enviarDatos(){
-    //alert("HI");
     
-    
-  //this.enviar.emit(this.form.value);
-  this.serviceCategorias.postConsultarPoliza().subscribe(response => {
-    //debugger; 
-    //console.log(response );
-      
-    }, error => {
+  insertarCategoria(){
+  
+     if (this.form.valid) {
+     
+       debugger
+      this.serviceCategorias.insertarCategoria(this.form.value).subscribe(response=>{
+        
+        this.form.patchValue(response);
+       
+        }, error => {
       debugger;
       alert(error);
-    });
+      });
+     }
+    }
   
-  }
-    
-
 }
